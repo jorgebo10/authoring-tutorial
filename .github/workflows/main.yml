@@ -1,0 +1,9 @@
+name: Hello world
+on:
+ pull_request
+ 
+jobs:
+  MyFirstJob:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "👋 Hello World!"
