@@ -11,6 +11,17 @@ on:   #all the triggers follow the key "on:"
     - cron:  '*/15 * * * *'
 
 jobs:
+  job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: "echo Job: ${{ github.job }}"
+
+    job_2:
+      runs-on: ubuntu-latest
+      needs: job_1
+      steps:
+        - run: "echo Job: ${{ github.job }}"
+
   MyFirstJob:
     runs-on: ubuntu-latest
     steps:
