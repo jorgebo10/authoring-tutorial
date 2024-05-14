@@ -9,7 +9,27 @@ on:   #all the triggers follow the key "on:"
   schedule: #schedule trigger => are based on cron expressions
     # Runs at every 15th minute
     - cron:  '*/15 * * * *'
-  workflow_dispatch:
+  workflow_dispatch: #manually
+    inputs:
+      homedrive:
+        description: 'The home drive on the machine'
+        required: true
+      logLevel:
+        description: 'Log level'
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      tag:
+        description: 'Apply tag after successfull test run'
+        required: true
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
 
 jobs:
   MyFirstJob:
